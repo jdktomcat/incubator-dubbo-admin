@@ -23,7 +23,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.alibaba.dubbo.admin.SpringUtil;
+import com.alibaba.dubbo.admin.util.SpringUtil;
 import com.alibaba.dubbo.admin.governance.util.WebConstants;
 import com.alibaba.dubbo.admin.web.mvc.governance.ServicesController;
 

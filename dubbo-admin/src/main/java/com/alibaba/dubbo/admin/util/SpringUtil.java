@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.alibaba.dubbo.admin;
+package com.alibaba.dubbo.admin.util;
 
 
 import com.alibaba.dubbo.common.logger.Logger;
@@ -23,6 +23,9 @@ import com.alibaba.dubbo.common.logger.LoggerFactory;
 
 import org.springframework.context.ApplicationContext;
 
+/**
+ * @author 11072131
+ */
 public class SpringUtil {
 
     public static final Logger logger = LoggerFactory.getLogger(SpringUtil.class);

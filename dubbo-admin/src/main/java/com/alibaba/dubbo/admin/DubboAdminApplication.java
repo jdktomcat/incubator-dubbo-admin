@@ -17,6 +17,7 @@
 
 package com.alibaba.dubbo.admin;
 
+import com.alibaba.dubbo.admin.util.SpringUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
