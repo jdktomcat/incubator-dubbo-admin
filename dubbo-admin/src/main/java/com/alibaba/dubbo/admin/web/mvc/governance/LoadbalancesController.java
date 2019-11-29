@@ -121,7 +121,9 @@ public class LoadbalancesController extends BaseController {
             List<String> serviceList = Tool.sortSimpleName(providerService.findServices());
             model.addAttribute("serviceList", serviceList);
         }
-        if (input != null) model.addAttribute("input", input);
+        if (input != null) {
+            model.addAttribute("input", input);
+        }
         LoadBalance loadbalance = OverrideUtils.overrideToLoadBalance(overrideService.findById(id));
         model.addAttribute("loadbalance", loadbalance);
         return "governance/screen/loadbalances/edit";

@@ -107,7 +107,9 @@ public class WeightsController extends BaseController {
             List<String> serviceList = Tool.sortSimpleName(providerService.findServices());
             model.addAttribute("serviceList", serviceList);
         }
-        if (input != null) model.addAttribute("input", input);
+        if (input != null) {
+            model.addAttribute("input", input);
+        }
         return "governance/screen/weights/add";
     }
 
@@ -137,20 +139,24 @@ public class WeightsController extends BaseController {
         BufferedReader reader = new BufferedReader(new StringReader(addr));
         while (true) {
             String line = reader.readLine();
-            if (null == line)
+            if (null == line) {
                 break;
+            }
 
             String[] split = line.split("[\\s,;]+");
             for (String s : split) {
-                if (s.length() == 0)
+                if (s.length() == 0) {
                     continue;
+                }
 
                 String ip = s;
                 String port = null;
                 if (s.indexOf(":") != -1) {
                     ip = s.substring(0, s.indexOf(":"));
                     port = s.substring(s.indexOf(":") + 1, s.length());
-                    if (port.trim().length() == 0) port = null;
+                    if (port.trim().length() == 0) {
+                        port = null;
+                    }
                 }
                 if (!IP_PATTERN.matcher(ip).matches()) {
                     model.addAttribute("message", "illegal IP: " + s);
@@ -180,13 +186,15 @@ public class WeightsController extends BaseController {
         reader = new BufferedReader(new StringReader(services));
         while (true) {
             String line = reader.readLine();
-            if (null == line)
+            if (null == line) {
                 break;
+            }
 
             String[] split = line.split("[\\s,;]+");
             for (String s : split) {
-                if (s.length() == 0)
+                if (s.length() == 0) {
                     continue;
+                }
                 if (!super.currentUser.hasServicePrivilege(s)) {
                     model.addAttribute("message", getMessage("HaveNoServicePrivilege", s));
                     model.addAttribute("success", false);
@@ -231,7 +239,9 @@ public class WeightsController extends BaseController {
             List<String> serviceList = Tool.sortSimpleName(providerService.findServices());
             model.addAttribute("serviceList", serviceList);
         }
-        if (input != null) model.addAttribute("input", input);
+        if (input != null) {
+            model.addAttribute("input", input);
+        }
         Weight weight = OverrideUtils.overrideToWeight(overrideService.findById(id));
         model.addAttribute("weight", weight);
         model.addAttribute("service", overrideService.findById(id).getService());

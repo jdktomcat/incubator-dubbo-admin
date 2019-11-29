@@ -186,13 +186,15 @@ public class AccessesController extends BaseController {
         BufferedReader reader = new BufferedReader(new StringReader(addr));
         while (true) {
             String line = reader.readLine();
-            if (null == line)
+            if (null == line) {
                 break;
+            }
 
             String[] split = line.split("[\\s,;]+");
             for (String s : split) {
-                if (s.length() == 0)
+                if (s.length() == 0) {
                     continue;
+                }
                 if (!IP_PATTERN.matcher(s).matches()) {
                     throw new IllegalStateException("illegal IP: " + s);
                 }
@@ -211,13 +213,15 @@ public class AccessesController extends BaseController {
         BufferedReader reader = new BufferedReader(new StringReader(services));
         while (true) {
             String line = reader.readLine();
-            if (null == line)
+            if (null == line) {
                 break;
+            }
 
             String[] split = line.split("[\\s,;]+");
             for (String s : split) {
-                if (s.length() == 0)
+                if (s.length() == 0) {
                     continue;
+                }
                 aimServices.add(s);
             }
         }

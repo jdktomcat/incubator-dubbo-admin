@@ -72,12 +72,16 @@ public class OverridesController extends BaseController {
 
     static Map<String, String> parseQueryString(String query) {
         HashMap<String, String> ret = new HashMap<String, String>();
-        if (query == null || (query = query.trim()).length() == 0) return ret;
+        if (query == null || (query = query.trim()).length() == 0) {
+            return ret;
+        }
 
         String[] kvs = AND.split(query);
         for (String kv : kvs) {
             Matcher matcher = EQUAL.matcher(kv);
-            if (!matcher.matches()) continue;
+            if (!matcher.matches()) {
+                continue;
+            }
             String key = matcher.group(1);
             String value = matcher.group(2);
             ret.put(key, value);
@@ -299,14 +303,20 @@ public class OverridesController extends BaseController {
             isFirst = false;
         }
         for (Map.Entry<String, String> e : method2Json.entrySet()) {
-            if (isFirst) isFirst = false;
-            else paramters.append("&");
+            if (isFirst) {
+                isFirst = false;
+            } else {
+                paramters.append("&");
+            }
 
             paramters.append(e.getKey()).append(MOCK_JSON_KEY_POSTFIX).append("=").append(URL.encode(e.getValue()));
         }
         for (Map.Entry<String, String> e : override2Value.entrySet()) {
-            if (isFirst) isFirst = false;
-            else paramters.append("&");
+            if (isFirst) {
+                isFirst = false;
+            } else {
+                paramters.append("&");
+            }
 
             paramters.append(e.getKey()).append("=").append(URL.encode(e.getValue()));
         }
