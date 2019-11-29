@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <dubbo_all_version>2.6.0</dubbo_all_version>
         <dubbo_version>2.6.0</dubbo_version>
         <jfreechart_version>1.0.13</jfreechart_version>
@@ -32,6 +33,7 @@
         <apache_rat_plugin.version>0.12</apache_rat_plugin.version>
         <maven_compiler_version>3.6.0</maven_compiler_version>
         <maven_jacoco_version>0.8.1</maven_jacoco_version>
+
     </properties>
 
     <modules>
